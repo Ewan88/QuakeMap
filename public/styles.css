@@ -10,6 +10,7 @@ body {
 .container {
   display: inline-flex;
   padding: 5px;
+  z-index: 2;
 }
 
 #center {
@@ -22,4 +23,12 @@ body {
   justify-content: flex-start;
   flex-direction: column;
   width: 30%
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width:100%;
+  z-index: 1;
 }
