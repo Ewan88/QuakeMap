@@ -1,27 +1,18 @@
 <template>
   <div id="app">
-    <div id="ui" class="container">
-      <div id="center" class="item">
-        <div id="form">
-          <label for="from">from:</label>
-          <input class="from" type="date" v-model="from" v-on:input="getEvents"/>
+    <div id="center" class="container">
+      <event-list :events="events"/>
+      <event-detail v-if="selectedEvent" :event="selectedEvent"/>
+    </div>
+    <div id="left" class="container">
+      <label for="from">from:</label>
+      <input class="from" type="date" v-model="from" v-on:input="getEvents">
 
-          <label for="to">to:</label>
-          <input class="to" type="date" v-model="to" v-on:input="getEvents"/>
+      <label for="to">to:</label>
+      <input class="to" type="date" v-model="to" v-on:input="getEvents"/>
 
-          <label for="mag">mag:</label>
-          <input class="mag" type="number" v-model="mag" max="10" min="0" v-on:input="getEvents"/>
-        </div>
-
-        <div id="detail" v-if="selectedEvent">
-          <event-detail :event="selectedEvent"/>
-        </div>
-      </div>
-      <div id="left" class="item">
-        <div id="drop-down">
-          <event-list :events="events"/>
-        </div>
-      </div>
+      <label for="mag">mag:</label>
+      <input class="mag" type="number" v-model="mag" max="10" min="0" v-on:input="getEvents"/>
     </div>
   </div>
 </template>
@@ -62,14 +53,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
-</style>

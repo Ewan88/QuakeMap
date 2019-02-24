@@ -1,8 +1,25 @@
-.container {
+body {
+  margin: 0;
+}
+
+#app {
   display: flex;
   flex-flow: row-reverse;
 }
 
-.item {
+.container {
   display: inline-flex;
+  padding: 5px;
+}
+
+#center {
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%
+}
+
+#left {
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 30%
 }

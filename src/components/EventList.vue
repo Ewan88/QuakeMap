@@ -1,10 +1,10 @@
 <template lang="html">
-       <select v-if="events" v-model="selectedEvent" v-on:change="handleSelect">
-         <option disabled value=''>select an event</option>
-         <option v-for="(event, index) in events.features" :key="index" :value="event">
-           {{event.properties.title}}
-         </option>
-       </select>
+  <select v-model="selectedEvent" v-on:change="handleSelect">
+    <option v-for="(event, index) in events.features" :key="index"
+    :value="event">
+      {{event.properties.title}}
+    </option>
+  </select>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ import { eventBus } from '../main.js';
 export default {
   data(){
     return {
-      selectedEvent: null
+      selectedEvent: null,
     }
   },
   name: "event-list",
