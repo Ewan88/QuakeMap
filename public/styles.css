@@ -5,6 +5,9 @@ body {
 #app {
   display: flex;
   flex-flow: row-reverse;
+  font-family: sans-serif;
+  color: white;
+  text-shadow: 0 0 3px black;
 }
 
 .container {
@@ -25,7 +28,7 @@ body {
   width: 30%
 }
 
-#map {
+#event-map {
   position: absolute;
   top: 0;
   bottom: 0;

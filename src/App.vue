@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="map"></div>
+    <event-map v-if="events" :events="events"/>
     <div id="center" class="container">
       <event-list :events="events"/>
       <event-detail v-if="selectedEvent" :event="selectedEvent"/>
@@ -21,6 +21,7 @@
 <script>
 import EventList from './components/EventList.vue';
 import EventDetail from './components/EventDetail.vue';
+import EventMap from './components/EventMap.vue'
 import { eventBus } from './main.js';
 
 export default {
@@ -30,18 +31,17 @@ export default {
       from: '2019-02-12',
       to: '2019-02-22',
       mag: '5',
-      events: {},
+      events: null,
       selectedEvent: null,
-      map: null,
     };
   },
   components: {
     "event-list": EventList,
     "event-detail": EventDetail,
+    "event-map": EventMap,
   },
   mounted(){
     this.getEvents();
-    this.initMap();
   },
   methods: {
     getEvents(){
@@ -51,15 +51,6 @@ export default {
 
       eventBus.$on('selected-event', (event) => {
         this.selectedEvent = event;
-      });
-    },
-    initMap(){
-      var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
-
-      mapboxgl.accessToken = 'pk.eyJ1Ijoicm9kZ2VyLXRoZS1zaHJ1YmJlciIsImEiOiJjanNqZ3gxNnoyYXFyNDN0YnV2dGVjeTl1In0.7YUhBJNDpqGmjW8iLzpgaQ';
-      this.map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11'
       });
     },
   }
