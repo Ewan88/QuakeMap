@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <event-map v-if="events" :events="events"/>
     <div id="center" class="container">
       <event-list :events="events"/>
       <event-detail v-if="selectedEvent" :event="selectedEvent"/>
@@ -20,6 +21,7 @@
 <script>
 import EventList from './components/EventList.vue';
 import EventDetail from './components/EventDetail.vue';
+import EventMap from './components/EventMap.vue'
 import { eventBus } from './main.js';
 
 export default {
@@ -29,13 +31,14 @@ export default {
       from: '2019-02-12',
       to: '2019-02-22',
       mag: '5',
-      events: {},
+      events: null,
       selectedEvent: null,
     };
   },
   components: {
     "event-list": EventList,
     "event-detail": EventDetail,
+    "event-map": EventMap,
   },
   mounted(){
     this.getEvents();

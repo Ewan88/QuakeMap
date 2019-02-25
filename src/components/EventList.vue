@@ -1,7 +1,6 @@
 <template lang="html">
   <select v-model="selectedEvent" v-on:change="handleSelect">
-    <option v-for="(event, index) in events.features" :key="index"
-    :value="event">
+    <option v-for="(event, index) in events.features" :key="index" :value="event">
       {{event.properties.title}}
     </option>
   </select>
@@ -15,8 +14,8 @@ export default {
       selectedEvent: null,
     }
   },
-  name: "event-list",
-  props: ["events"],
+  name: 'event-list',
+  props: ['events'],
   methods: {
     handleSelect(){
       eventBus.$emit('selected-event', this.selectedEvent);
