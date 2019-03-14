@@ -2,7 +2,7 @@
   <div id="app">
     <event-map v-if="events" :events="events"/>
     <div id="center" class="container">
-      <event-list :events="events"/>
+      <event-list v-if="events" :events="events"/>
       <event-detail v-if="selectedEvent" :event="selectedEvent"/>
     </div>
     <div id="left" class="container">

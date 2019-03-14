@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div class="detail">
     <p>{{event.properties.place}}</p>
     <p>{{event.properties.mag}} mb</p>
     <p>{{event.geometry.coordinates[2]}} km</p>
@@ -16,7 +16,3 @@ export default {
   props: ["event"]
 }
 </script>
-
-<style lang="css" scoped>
-
-</style>

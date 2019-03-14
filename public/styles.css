@@ -5,9 +5,9 @@ body {
 #app {
   display: flex;
   flex-flow: row-reverse;
+  justify-content: space-between;
   font-family: sans-serif;
   color: white;
-  text-shadow: 0 0 3px black;
 }
 
 .container {
@@ -16,16 +16,23 @@ body {
   z-index: 2;
 }
 
+.detail {
+  padding: 0 5px;
+  background-color: rgba(0, 0, 0, 0.4)
+}
+
 #center {
   flex-direction: column;
-  justify-content: flex-start;
-  width: 100%
+  width: auto;
 }
 
 #left {
-  justify-content: flex-start;
   flex-direction: column;
-  width: 30%
+  width: auto;
+}
+
+label {
+  text-shadow: 0 0 10px black;
 }
 
 #event-map {
