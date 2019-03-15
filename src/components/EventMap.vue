@@ -3,26 +3,43 @@
     :accessToken="accessToken"
     :mapStyle="mapStyle"
     id="event-map"
-  />
+  >
+    <MglMarker :coordinates="coordinates" color="blue" />
+  </MglMap>
 </template>
 
 <script>
 import Mapbox from "mapbox-gl";
-import { MglMap } from "vue-mapbox";
+import { MglMap, MglMarker } from "vue-mapbox";
 
 export default {
+  name: 'event-map',
+  props: ['events'],
   components: {
-    MglMap
+    MglMap,
+    MglMarker
   },
   data() {
     return {
       accessToken: 'pk.eyJ1Ijoicm9kZ2VyLXRoZS1zaHJ1YmJlciIsImEiOiJjanNqZ3gxNnoyYXFyNDN0YnV2dGVjeTl1In0.7YUhBJNDpqGmjW8iLzpgaQ',
       mapStyle: 'mapbox://styles/mapbox/satellite-streets-v11',
+      coordinates: [
+        this.events.features[0].geometry.coordinates[0],
+        this.events.features[0].geometry.coordinates[1] 
+      ]
     };
   },
   created() {
     this.mapbox = Mapbox;
-  }
+    // console.log(this.mapbox);
+    // this.MglMap.addSource('event-map', {
+    //   type: 'geojson',
+    //   data: this.events,
+    // });
+  },
+  methods: {
+
+  },
 };
 
 
